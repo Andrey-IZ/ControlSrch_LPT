@@ -1,0 +1,50 @@
+﻿<catel:UserControl
+    x:Class="Modules.ManipulationsCode.Views.CodeManipulationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:catel="http://catel.codeplex.com"
+    xmlns:views="clr-namespace:Modules.ManipulationsCode.Views"
+    xmlns:wpfCustomControlLibraryVs2015="clr-namespace:WpfCustomControlLibraryVS2015;assembly=WpfCustomControlLibraryVS2015">
+    <GroupBox Header="Код Управления">
+        <StackPanel
+            MinWidth="100"
+            Margin="0,6,0,0"
+            CanVerticallyScroll="True"
+            ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding GunsList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <views:GunView DataContext="{Binding}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <WrapPanel Margin="0,4,0,5">
+                <Label
+                    Width="112"
+                    Height="16"
+                    Padding="0,0,5,1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Шаг перестройки" />
+                <wpfCustomControlLibraryVs2015:NumericUpDown
+                    Width="75.5"
+                    Height="20"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    DecreaseCommand="{Binding DecreaseStepCommand}"
+                    DecreaseHltCommand="{Binding DecreaseHltCommand, Mode=OneWayToSource}"
+                    IncreaseCommand="{Binding IncreaseStepCommand}"
+                    IncreaseHltCommand="{Binding IncreaseHltCommand, Mode=OneWayToSource}"
+                    IsAnimChangedValue="{Binding IsAnimChangedValue}"
+                    IsStartAnimChangedValue="{Binding IsStartAnimChangedValue, Mode=TwoWay}"
+                    MaxValue="{Binding MaxStepValue}"
+                    MinValue="{Binding MinStepValue}"
+                    MinorDelta="{Binding MinorDelta, Mode=OneTime}"
+                    Value="{Binding CurrentStepValue, Mode=TwoWay}" />
+            </WrapPanel>
+        </StackPanel>
+    </GroupBox>
+
+</catel:UserControl>

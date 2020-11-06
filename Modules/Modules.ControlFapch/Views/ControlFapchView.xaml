@@ -1,0 +1,43 @@
+﻿<catel:UserControl
+    x:Class="Modules.ControlFapch.Views.ControlFapchView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:catel="http://catel.codeplex.com">
+
+    <GroupBox Header="Контроль ФАПЧ">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="39" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Margin="0">
+                <CheckBox
+                    x:Name="checkBox_ControlFapch_Div_In_Sig"
+                    Height="16"
+                    Margin="0,8,0,0"
+                    Content="Делитель частоты входного сигнала"
+                    IsChecked="{Binding IsDivisorInputSignal, Mode=TwoWay}" />
+                <CheckBox
+                    x:Name="checkBox_ControlFapch_Div_Op_F"
+                    Height="16"
+                    Margin="0,8,0,0"
+                    Content="Делитель опорной частоты"
+                    IsChecked="{Binding IsDivisorSupportingFreq, Mode=TwoWay}" />
+                <CheckBox
+                    x:Name="checkBox_ControlFapch_Phas_Sensor_Analog"
+                    Height="16"
+                    Margin="0,8,0,0"
+                    Content="Фазовый детектор (аналоговый)"
+                    IsChecked="{Binding IsPhaseDetectorAnalog, Mode=TwoWay}" />
+                <CheckBox
+                    x:Name="checkBox_ControlFapch_Phas_Sens_Digit"
+                    Height="16"
+                    Margin="0,8,0,0"
+                    Content="Фазовый детектор (цифровой)"
+                    IsChecked="{Binding IsPhaseDetectorDigital, Mode=TwoWay}" />
+            </StackPanel>
+        </Grid>
+
+    </GroupBox>
+</catel:UserControl>

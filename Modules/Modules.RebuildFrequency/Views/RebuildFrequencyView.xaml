@@ -1,0 +1,31 @@
+﻿<catel:UserControl
+    x:Class="Modules.RebuildFrequency.Views.RebuildFrequencyView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:catel="http://catel.codeplex.com">
+
+    <GroupBox Header="Перестройка частоты">
+        <WrapPanel Orientation="Horizontal">
+            <StackPanel VerticalAlignment="Top" Orientation="Vertical">
+                <CheckBox
+                    x:Name="CheckBoxManual"
+                    Margin="5,15,5,5"
+                    Content="Ручная"
+                    IsChecked="{Binding IsManual, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel>
+                <CheckBox
+                    x:Name="CheckBoxAuto"
+                    Margin="5,15,5,5"
+                    Content="Автомат"
+                    IsChecked="{Binding IsAuto, Mode=TwoWay}" />
+                <CheckBox
+                    x:Name="CheckBoxStop"
+                    Margin="5,5,5,5"
+                    Content="Стоп"
+                    IsChecked="{Binding IsStop, Mode=TwoWay}" />
+            </StackPanel>
+        </WrapPanel>
+    </GroupBox>
+
+</catel:UserControl>

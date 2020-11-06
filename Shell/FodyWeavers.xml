@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Weavers>
+  <Costura  IncludeDebugSymbols='false' DisableCompression='false' CreateTemporaryAssemblies='true'>
+    <Unmanaged32Assemblies>
+        inpout32
+    </Unmanaged32Assemblies>
+  </Costura>
+  
+</Weavers>

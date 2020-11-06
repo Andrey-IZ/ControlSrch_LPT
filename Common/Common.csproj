@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43064C20-DC21-463A-A5EF-8C5B9923B0AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Catel.Core, Version=4.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catel.Core.4.5.3\lib\net45\Catel.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Catel.Extensions.Controls">
+      <HintPath>..\packages\Catel.Extensions.Controls.4.5.3\lib\net45\Catel.Extensions.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.Extensions.Prism, Version=4.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catel.Extensions.Prism6.4.5.3\lib\net45\Catel.Extensions.Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Catel.MVVM, Version=4.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catel.MVVM.4.5.3\lib\net45\Catel.MVVM.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.6.2.0\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.2.0\lib\net45\Prism.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Communications\Commands.cs" />
+    <Compile Include="Converters\AndMultiConverter.cs" />
+    <Compile Include="Messages\ChangeStepBuilderMessage.cs" />
+    <Compile Include="Models\CaptureFapch.cs" />
+    <Compile Include="Models\CaptureFapchRepository.cs" />
+    <Compile Include="Models\ControlFapch.cs" />
+    <Compile Include="Models\ControlFapchRepository.cs" />
+    <Compile Include="Models\DebugModel.cs" />
+    <Compile Include="Models\DebugModelRepository.cs" />
+    <Compile Include="Models\ExitsAk.cs" />
+    <Compile Include="Models\FrequencyModulation.cs" />
+    <Compile Include="Models\FrequencyModulationRepository.cs" />
+    <Compile Include="Models\Gun.cs" />
+    <Compile Include="Models\CodeManipulationRepository.cs" />
+    <Compile Include="Models\Interfaces\ICaptureFapch.cs" />
+    <Compile Include="Models\Interfaces\ICaptureFapchRepository.cs" />
+    <Compile Include="Models\Interfaces\IControlFapch.cs" />
+    <Compile Include="Models\Interfaces\IControlFapchRepository.cs" />
+    <Compile Include="Models\Interfaces\IDebugModel.cs" />
+    <Compile Include="Models\Interfaces\IDebugModelRepository.cs" />
+    <Compile Include="Models\Interfaces\IExitsAk.cs" />
+    <Compile Include="Models\Interfaces\IFrequencyModulation.cs" />
+    <Compile Include="Models\Interfaces\IFrequencyModulationRepository.cs" />
+    <Compile Include="Models\Interfaces\IGun.cs" />
+    <Compile Include="Models\Interfaces\ICodeManipulationRepository.cs" />
+    <Compile Include="Models\Interfaces\IRangeReproductionFRepository.cs" />
+    <Compile Include="Models\Interfaces\IRebuildFrequency.cs" />
+    <Compile Include="Models\Interfaces\IRebuildFrequencyRepository.cs" />
+    <Compile Include="Models\Interfaces\IRebuildStep.cs" />
+    <Compile Include="Models\Interfaces\ISentPacket.cs" />
+    <Compile Include="Models\Interfaces\IStatusBar.cs" />
+    <Compile Include="Models\Interfaces\IStatusBarRepository.cs" />
+    <Compile Include="Models\Interfaces\ISynthesizerRepository.cs" />
+    <Compile Include="Models\Interfaces\ITabModel.cs" />
+    <Compile Include="Models\Interfaces\ISynthesizer.cs" />
+    <Compile Include="Models\Packet.cs" />
+    <Compile Include="Models\RangeReproductionFRepository.cs" />
+    <Compile Include="Models\RebuildFrequency.cs" />
+    <Compile Include="Models\RebuildFrequencyRepository.cs" />
+    <Compile Include="Models\RebuildStep.cs" />
+    <Compile Include="Models\SentPacket.cs" />
+    <Compile Include="Models\StatusBar.cs" />
+    <Compile Include="Models\StatusBarRepository.cs" />
+    <Compile Include="Models\Synthesizer.cs" />
+    <Compile Include="Models\SynthesizerRepository.cs" />
+    <Compile Include="Models\TabModel.cs" />
+    <Compile Include="Modularity\ModuleControl.xaml.cs">
+      <DependentUpon>ModuleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modularity\TabModuleBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Constants\WellKnownModuleNames.cs" />
+    <Compile Include="Constants\WellKnownRegionNames.cs" />
+    <Compile Include="Services\Interfaces\IRemoteControlService.cs" />
+    <Compile Include="Services\RemoteControlService.cs" />
+    <Compile Include="TabControlAdapter.cs" />
+    <Compile Include="ViewModel\Interfaces\ITabViewModel.cs" />
+    <Compile Include="ViewModel\TabViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Modularity\ModuleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\StandartControlVS2012.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controls\WpfCustomControlLibraryVS2015\Controls.WpfCustomControlLibraryVS2015.csproj">
+      <Project>{e7c787b1-7f23-4408-989c-3aaf27040caa}</Project>
+      <Name>Controls.WpfCustomControlLibraryVS2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drivers\Drivers.LptIO\Drivers.LptIO.csproj">
+      <Project>{40119926-1062-4B89-9683-F63218AF738D}</Project>
+      <Name>Drivers.LptIO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="lib\DebugToolsLib.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,102 @@
+﻿<catel:UserControl
+    x:Class="Modules.Forms.FormDebug.Views.FormDebugView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:catel="http://catel.codeplex.com"
+    xmlns:textBox="clr-namespace:WpfTools.Converters.TextBox;assembly=WpfTools">
+    <Grid>
+        <Grid.Resources>
+            <textBox:UIntHexStringConverter x:Key="HexConverter" />
+        </Grid.Resources>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
+        <Rectangle
+            Grid.Row="1"
+            Grid.Column="1"
+            Height="50"
+            Fill="AliceBlue"
+            RadiusX="10"
+            RadiusY="10" />
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1"
+            Height="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                Content="Пакет в Lpt: " />
+            <StackPanel Grid.Column="2" Margin="5,0">
+                <Label Content="Адрес:" />
+                <TextBox Width="50" Text="{Binding Address, Mode=TwoWay, Converter={StaticResource HexConverter}, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Grid.Column="4" Margin="5,0">
+                <Label Content="Данные:" />
+                <TextBox Width="50" Text="{Binding Data, Mode=TwoWay, Converter={StaticResource HexConverter}, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <Button
+                Grid.Column="5"
+                Width="70"
+                Margin="5,10,5,5"
+                Command="{Binding SendPacketCommand}"
+                Content="Отправить"
+                Style="{DynamicResource SimpleButton}" />
+        </Grid>
+
+        <DataGrid
+            Grid.Row="3"
+            Grid.Column="1"
+            MaxHeight="200"
+            AlternatingRowBackground="LightGray"
+            AutoGenerateColumns="False"
+            HeadersVisibility="Column"
+            HorizontalGridLinesBrush="DarkGray"
+            IsSynchronizedWithCurrentItem="True"
+            ItemsSource="{Binding SentPackets}"
+            RowBackground="White"
+            SelectedItem="{Binding SelectedSentPacket, Mode=TwoWay}"
+            SelectionMode="Single"
+            VerticalScrollBarVisibility="Auto">
+
+            <!--<DataGrid.Items>
+                <models:SentPacket Address="01" Data="03" Time="12:30:22"/>
+                <models:SentPacket Address="201" Data="23"/>
+                <models:SentPacket Address="01" Data="03"/>
+            </DataGrid.Items>-->
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Binding="{Binding Time, StringFormat='{}{0:HH:mm:ss.fff}'}"
+                    Header="Время"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Binding="{Binding Address, StringFormat='{}{0:X}'}"
+                    Header="Адрес"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Binding="{Binding Data, StringFormat='{}{0:X}'}"
+                    Header="Данные"
+                    IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+
+</catel:UserControl>
+

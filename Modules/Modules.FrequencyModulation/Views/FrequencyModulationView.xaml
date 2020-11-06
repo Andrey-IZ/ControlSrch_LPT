@@ -1,0 +1,112 @@
+﻿<catel:UserControl
+    x:Class="Modules.FrequencyModulation.Views.FrequencyModulationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:catel="http://catel.codeplex.com"
+    xmlns:wpfCustomControlLibraryVs2015="clr-namespace:WpfCustomControlLibraryVS2015;assembly=WpfCustomControlLibraryVS2015">
+
+    <GroupBox Header="Модуляция">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="135" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24*" />
+                <RowDefinition Height="23*" />
+                <RowDefinition Height="23*" />
+            </Grid.RowDefinitions>
+
+            <Label
+                x:Name="checkBoXManual1"
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Margin="0,0,0,1"
+                Padding="0"
+                VerticalAlignment="Center"
+                Content="Выбор канала:" />
+            <Grid
+                Grid.Row="0"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                Margin="0,1"
+                VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <CheckBox
+                    x:Name="checkBox_Modulation_Ch_UK1"
+                    Grid.Column="0"
+                    Content="УК1"
+                    IsChecked="{Binding IsOnUk1, Mode=TwoWay}" />
+                <CheckBox
+                    x:Name="checkBox_Modulation_Ch_UK2"
+                    Grid.Column="2"
+                    Content="УК2"
+                    IsChecked="{Binding IsOnUk2, Mode=TwoWay}" />
+            </Grid>
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Padding="0"
+                VerticalAlignment="Center"
+                Content="Амплитуда шума:" />
+            <wpfCustomControlLibraryVs2015:NumericUpDown
+                Grid.Row="1"
+                Grid.Column="2"
+                Width="64"
+                Height="20"
+                HorizontalAlignment="Left"
+                IsAnimChangedValue="{Binding IsAnimChangedValue}"
+                IsStartAnimChangedValue="{Binding IsStartAnimChangedValue, Mode=TwoWay}"
+                MaxValue="{Binding MaxAmplitudeCode, Mode=OneTime}"
+                MinValue="{Binding MinAmplitudeCode, Mode=OneTime}"
+                MinorDelta="{Binding MinorDeltaAmplitudeCode}"
+                Value="{Binding AmplitudeCode, Mode=TwoWay}" />
+
+            <CheckBox
+                x:Name="checkBox_Modulation_Noise"
+                Grid.Row="1"
+                Grid.Column="4"
+                Margin="0,3"
+                VerticalAlignment="Center"
+                Content="Шум"
+                IsChecked="{Binding IsNoise, Mode=TwoWay}" />
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                Padding="0"
+                VerticalAlignment="Center"
+                Content="Амплитуда модуляции:" />
+            <wpfCustomControlLibraryVs2015:NumericUpDown
+                Grid.Row="2"
+                Grid.Column="2"
+                Width="64"
+                Height="20"
+                DecreaseCommand="{Binding DecreaseAmplitudeMseqCommand}"
+                IncreaseCommand="{Binding IncreaseAmplitudeMseqCommand}"
+                IsAnimChangedValue="{Binding IsAnimChangedValueAmplMod}"
+                IsStartAnimChangedValue="{Binding IsStartAnimChangedValueAmplMod, Mode=TwoWay}"
+                MaxValue="{Binding MaxAmplitudeCodeMseq, Mode=OneTime}"
+                MinValue="{Binding MinAmplitudeCodeMseq, Mode=OneTime}"
+                Value="{Binding AmplitudeCodeMseq, Mode=TwoWay}" />
+
+            <CheckBox
+                x:Name="checkBox_M_Sequence"
+                Grid.Row="2"
+                Grid.Column="4"
+                Margin="0,3"
+                VerticalAlignment="Center"
+                Content="M-последовательность"
+                IsChecked="{Binding IsMseq, Mode=TwoWay}" />
+
+        </Grid>
+    </GroupBox>
+
+</catel:UserControl>

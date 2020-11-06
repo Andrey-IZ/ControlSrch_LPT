@@ -1,0 +1,45 @@
+﻿<catel:UserControl
+    x:Class="Modules.CaptureFapch.Views.CaptureFapchView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:catel="http://catel.codeplex.com"
+    xmlns:converters="clr-namespace:WpfCustomControlLibraryVS2015.Converters;assembly=WpfCustomControlLibraryVS2015"
+    xmlns:wpfCustomControlLibraryVs2015="clr-namespace:WpfCustomControlLibraryVS2015;assembly=WpfCustomControlLibraryVS2015">
+
+    <GroupBox Header="ФАПЧ">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="15*" />
+            </Grid.RowDefinitions>
+            <wpfCustomControlLibraryVs2015:SimpleLed
+                x:Name="CaptureFapch1TakeOverFApchSimpleLed"
+                Grid.Row="1"
+                Grid.Column="1"
+                ColorBorderLed="DarkBlue"
+                ColorDisabled="{DynamicResource LedColorDisabled}"
+                ColorOff="{DynamicResource LedColorOff}"
+                ColorOn="{DynamicResource LedColorOn}"
+                CurrentState="{Binding IsCaptureFapch1, Converter={converters:LedStateToBoolConvertor}}"
+                Text="Захват ФАПЧ1" />
+            <wpfCustomControlLibraryVs2015:SimpleLed
+                x:Name="CaptureFapch2TakeOverFApchSimpleLed"
+                Grid.Row="3"
+                Grid.Column="1"
+                ColorBorderLed="DarkBlue"
+                ColorDisabled="{DynamicResource LedColorDisabled}"
+                ColorOff="{DynamicResource LedColorOff}"
+                ColorOn="{DynamicResource LedColorOn}"
+                CurrentState="{Binding IsCaptureFapch2, Converter={converters:LedStateToBoolConvertor}}"
+                Text="Захват ФАПЧ2" />
+        </Grid>
+    </GroupBox>
+</catel:UserControl>
